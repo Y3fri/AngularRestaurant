@@ -1,0 +1,37 @@
+<h1 mat-dialog-title >{{menu!=null ? 'Editar Descuento': 'Nuevo Descuento'}}</h1>
+<div mat-dialog-content>
+    
+    <mat-label>Producto</mat-label><br>
+    <select matselect [(ngModel)]="desProducto"  >
+        <option value="0">Selecciona una opción</option>
+        <option value="{{element.proId}}" *ngFor="let element of lst">
+            {{element.proNombre}}
+        </option>  
+    </select> 
+<br><br>
+   
+   
+    <mat-form-field>
+        <mat-label>Porcentaje</mat-label>
+        <input matInput [(ngModel)]="desPorcentaje"> 
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Fecha Inicio</mat-label>
+            <input matInput [(ngModel)]="desFechaInicio"> 
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Fecha Final</mat-label>
+                <input matInput [(ngModel)]="desFechaFinal"> 
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Estado</mat-label>
+                    <input matInput [(ngModel)]="desEstado"> 
+                    </mat-form-field>
+    
+                                                       
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="menu!= null ? edit() : add()">Guardar</button>
+</div>

@@ -1,0 +1,31 @@
+<h1 mat-dialog-title >{{menu!=null ? 'Editar Categoria': 'Nueva Categoria'}}</h1>
+<div mat-dialog-content>
+    <mat-label>Sede</mat-label><br>
+    <select matselect [(ngModel)]="catSede"  >
+        <option value="0">Selecciona una opción</option>
+        <option value="{{element.sedId}}" *ngFor="let element of lst">
+            {{element.sedUbicacionGoogle}}
+        </option>  
+    </select> 
+<br><br>
+ 
+    <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="catNombre"> 
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Descripcion</mat-label>
+            <input matInput [(ngModel)]="catDescripcion"> 
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Estado</mat-label>
+                <input matInput [(ngModel)]="catEstado"> 
+                </mat-form-field>
+    
+                                                       
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="menu!= null ? edit() : add()">Guardar</button>
+</div>

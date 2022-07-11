@@ -1,0 +1,26 @@
+<h1 mat-dialog-title >{{departamento!=null ? 'Editar Departamento': 'Nuevo Departamento'}}</h1>
+<div mat-dialog-content>
+
+    <select matselect [(ngModel)]="depPais"  >
+        <option value="0">Selecciona una opción</option>
+        <option value="{{element.paiId}}" *ngFor="let element of lst">
+            {{element.paiNombre}}
+        </option>  
+    </select> 
+
+    <mat-form-field>
+        <mat-label>Codigo dane</mat-label>
+        <input matInput [(ngModel)]="depCodigoDane"> 
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Departamento</mat-label>
+            <input matInput [(ngModel)]="depNombre"> 
+            </mat-form-field>
+    
+                                                       
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="departamento!= null ? edit() : add()">Guardar</button>
+</div>

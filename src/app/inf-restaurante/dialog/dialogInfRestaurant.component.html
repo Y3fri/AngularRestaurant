@@ -1,0 +1,40 @@
+<h1 mat-dialog-title >{{infRes!=null ? 'Editar Informacion': 'Nueva Informacion'}}</h1>
+<div mat-dialog-content>
+
+    <select matselect [(ngModel)]="InfMunicipio"  >
+        <option value="0">Selecciona una opción</option>
+        <option value="{{element.munId}}" *ngFor="let element of lst">
+            {{element.munNombre}}
+        </option>  
+    </select> 
+ <br><br>
+    <mat-form-field>
+        <mat-label>Nit</mat-label>
+        <input matInput [(ngModel)]="IntNit"> 
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>Razon Social</mat-label>
+            <input matInput [(ngModel)]="InfRazonSocial"> 
+            </mat-form-field><br>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput [(ngModel)]="InfEmailPrincipal"> 
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>Direccion</mat-label>
+                    <input matInput [(ngModel)]="InfDireccionPrincipal"> 
+                    </mat-form-field><br>
+                    <mat-form-field>
+                        <mat-label>Telefono</mat-label>
+                        <input matInput [(ngModel)]="InfTelefonoPrincipal"> 
+                        </mat-form-field><br>
+        <mat-form-field>
+             <mat-label>Logo</mat-label>
+             <input matInput [(ngModel)]="InfLogo"> 
+         </mat-form-field>   <br>                                              
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="infRes!= null ? edit() : add()">Guardar</button>
+</div>

@@ -1,0 +1,213 @@
+<h2>Tipo</h2>
+<div>
+    <button mat-raised-button color="primary" (click)="openAddPedidoTipo()">Nuevo</button>
+</div>
+<br>
+<div>
+    <table mat-table [dataSource]="lst" class="mat-elevation-z4">
+        <ng-container matColumnDef = "id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element">{{element.tipId}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.tipNombre}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "descripcion">
+            <th mat-header-cell *matHeaderCellDef>Descripción</th>
+            <td mat-cell *matCellDef="let element">{{element.tipDescripcion}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.tipEstado}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openEditPedidoTipo(element)" mat-raised-button color="basic">Editar</button> |
+                <button (click)="deletePedidoTipo(element)" mat-raised-button color="warn">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+    </table>
+</div>
+<br>
+<h2>Tipo de pago</h2>
+<div>
+    <button mat-raised-button color="primary" (click)="openAddPedidoTipoPago()">Nuevo</button>
+</div>
+<br>
+<div>
+    <table mat-table [dataSource]="lst1" class="mat-elevation-z4">
+        <ng-container matColumnDef = "id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element">{{element.tipaId}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.tipaNombre}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "descripcion">
+            <th mat-header-cell *matHeaderCellDef>Descripción</th>
+            <td mat-cell *matCellDef="let element">{{element.tipaDescripcion}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.tipaEstado}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openEditPedidoTipoPago(element)" mat-raised-button color="basic">Editar</button> |
+                <button (click)="deletePedidoTipoPago(element)" mat-raised-button color="warn">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas1"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas1"></tr>
+    </table>
+</div>
+<br>
+<h2>Estado</h2>
+<div>
+    <button mat-raised-button color="primary" (click)="openAddPedidoEstado()">Nuevo</button>
+</div>
+<br>
+<div>
+    <table mat-table [dataSource]="lst2" class="mat-elevation-z4">
+        <ng-container matColumnDef = "id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element">{{element.estId}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.estNombre}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "descripcion">
+            <th mat-header-cell *matHeaderCellDef>Descripción</th>
+            <td mat-cell *matCellDef="let element">{{element.estDescripcion}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.estEstado}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openEditPedidoEstado(element)" mat-raised-button color="basic">Editar</button> |
+                <button (click)="deletePedidoEstado(element)" mat-raised-button color="warn">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas2"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas2"></tr>
+    </table>
+</div>
+<br>
+<h2>Producto</h2>
+<div>
+    <button mat-raised-button color="primary" (click)="openAddPedidoProducto()">Nuevo</button>
+</div>
+<br>
+<div>
+    <table mat-table [dataSource]="lst3" class="mat-elevation-z4">
+        <ng-container matColumnDef = "id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element">{{element.proId}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "producto">
+            <th mat-header-cell *matHeaderCellDef>Producto</th>
+            <td mat-cell *matCellDef="let element">{{element.proProducto}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.proEstado}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "solicitud">
+            <th mat-header-cell *matHeaderCellDef>Solicitud</th>
+            <td mat-cell *matCellDef="let element">{{element.proSolicitudAdicional}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openEditPedidoProducto(element)" mat-raised-button color="basic">Editar</button> |
+                <button (click)="deletePedidoProducto(element)" mat-raised-button color="warn">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas3"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas3"></tr>
+    </table>
+</div>
+<br>
+
+<h2>Información</h2>
+<div>
+    <button mat-raised-button color="primary" (click)="openAddPedidoInformacion()">Nuevo</button>
+</div>
+<br>
+<div>
+    <table mat-table [dataSource]="lst4" class="mat-elevation-z4">
+        <ng-container matColumnDef = "id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element">{{element.infId}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "tipo">
+            <th mat-header-cell *matHeaderCellDef>Tipo</th>
+            <td mat-cell *matCellDef="let element">{{element.infTipo}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "municipio">
+            <th mat-header-cell *matHeaderCellDef>Municipio</th>
+            <td mat-cell *matCellDef="let element">{{element.infMunicipio}}</td>
+        </ng-container>
+       <ng-container matColumnDef = "tipopago">
+            <th mat-header-cell *matHeaderCellDef>Tipo pago</th>
+            <td mat-cell *matCellDef="let element">{{element.infTipoPago}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.infEstado}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef = "nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre cliente</th>
+            <td mat-cell *matCellDef="let element">{{element.infNombreCliente}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "direccion">
+            <th mat-header-cell *matHeaderCellDef>Direccion</th>
+            <td mat-cell *matCellDef="let element">{{element.infDireccion}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "telefono">
+            <th mat-header-cell *matHeaderCellDef>Telefono</th>
+            <td mat-cell *matCellDef="let element">{{element.infTelefono}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "piso">
+            <th mat-header-cell *matHeaderCellDef>Piso</th>
+            <td mat-cell *matCellDef="let element">{{element.infNumeroPiso}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "mesa">
+            <th mat-header-cell *matHeaderCellDef>Mesa</th>
+            <td mat-cell *matCellDef="let element">{{element.infNumeroMesa}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openEditPedidoInformacion(element)" mat-raised-button color="basic">Editar</button> |
+                <button (click)="deletePedidoInformacion(element)" mat-raised-button color="warn">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas4"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas4"></tr>
+    </table>
+</div>

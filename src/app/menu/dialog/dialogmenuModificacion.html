@@ -1,0 +1,13 @@
+<h1 mat-dialog-title >{{menu!=null ? 'Editar Modificación': 'Nueva Modificación'}}</h1>
+<div mat-dialog-content>
+
+    <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="modNombre"> 
+        </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="menu!= null ? edit() : add()">Guardar</button>
+</div>

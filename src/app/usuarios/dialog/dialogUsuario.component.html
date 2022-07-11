@@ -1,0 +1,43 @@
+<h1 mat-dialog-title >{{usu!=null ? 'Editar Modulo': 'Nuevo Modulo'}}</h1>
+<div mat-dialog-content>
+
+    <select matselect [(ngModel)]="usuRestaurante">
+        <option value="0">Selecciona una opción</option>
+        <option value="{{element.infId}}" *ngFor="let element of lst">
+            {{element.intNit}}
+        </option>  
+    </select> 
+    <select matselect [(ngModel)]="usuRol">
+        <option value="0">Selecciona una opción</option>
+        <option value="{{element.rolId}}" *ngFor="let element of lst2">
+            {{element.rolNombre}}
+        </option>  
+    </select> 
+    <mat-form-field>
+        <mat-label>Documento</mat-label>
+        <input matInput [(ngModel)]="usuDocumento"> 
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="usuNombre"> 
+            </mat-form-field>
+          
+        <mat-form-field>
+            <mat-label>Apellido</mat-label>
+            <input matInput [(ngModel)]="usuApellido"> 
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Nickname</mat-label>
+                <input matInput [(ngModel)]="usuNickname"> 
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput [(ngModel)]="usuContrasenia"> 
+                    </mat-form-field>
+                                                       
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="usu!= null ? edit() : add()">Guardar</button>
+</div>

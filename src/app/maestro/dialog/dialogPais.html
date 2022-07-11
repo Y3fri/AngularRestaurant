@@ -1,0 +1,16 @@
+<h1 mat-dialog-title >{{pais!=null ? 'Editar Pais': 'Nuevo Pais'}}</h1>
+<div mat-dialog-content>
+
+    <mat-form-field>
+    <mat-label>Pais</mat-label>
+    <input matInput [(ngModel)]="paiNombre"> 
+    </mat-form-field>
+    
+                                                       
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="pais!= null ? edit() : add()">Guardar</button>
+</div>
+

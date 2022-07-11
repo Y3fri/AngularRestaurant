@@ -1,0 +1,219 @@
+<h2>Categorias</h2>
+<div>
+    <button mat-raised-button color="primary" (click)="openAddMenuCategoria()">Nueva Categoria</button>
+</div>
+<br>
+<div>
+    <table mat-table [dataSource]="lst" class="mat-elevation-z4">
+        <ng-container matColumnDef = "id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element">{{element.catId}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "sede">
+            <th mat-header-cell *matHeaderCellDef>Sede</th>
+            <td mat-cell *matCellDef="let element">{{element.carSede}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.catNombre}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "descripcion">
+            <th mat-header-cell *matHeaderCellDef>Descripción</th>
+            <td mat-cell *matCellDef="let element">{{element.catDescripcion}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.catEstado}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openEditMenuCategoria(element)" mat-raised-button color="basic">Editar</button> |
+                <button (click)="deleteMenuCategoria(element)" mat-raised-button color="warn">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+    </table>
+</div>
+
+<br>
+<h2>Producto</h2>
+<div>
+    <button mat-raised-button color="primary" (click)="openAddMenuProducto()">Nuevo Producto</button>
+</div>
+<br>
+<div>
+    <table mat-table [dataSource]="lst1" class="mat-elevation-z4">
+        <ng-container matColumnDef = "id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element">{{element.proId}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "categoria">
+            <th mat-header-cell *matHeaderCellDef>Categoria</th>
+            <td mat-cell *matCellDef="let element">{{element.proCategoria}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "sede">
+            <th mat-header-cell *matHeaderCellDef>Sede</th>
+            <td mat-cell *matCellDef="let element">{{element.proSede}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.proNombre}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "descripcion">
+            <th mat-header-cell *matHeaderCellDef>Descripción</th>
+            <td mat-cell *matCellDef="let element">{{element.proDescripcion}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "precio">
+            <th mat-header-cell *matHeaderCellDef>Precio</th>
+            <td mat-cell *matCellDef="let element">$ {{element.proPrecio}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "foto">
+            <th mat-header-cell *matHeaderCellDef>Foto</th>
+            <td mat-cell *matCellDef="let element">{{element.proFoto}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "video">
+            <th mat-header-cell *matHeaderCellDef>Video</th>
+            <td mat-cell *matCellDef="let element">
+                <a href="{{element.provideo}}">Ver video</a>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef = "preparacion">
+            <th mat-header-cell *matHeaderCellDef>Preparacion</th>
+            <td mat-cell *matCellDef="let element">{{element.proTiempoPreparacion}} min</td>
+        </ng-container>
+        <ng-container matColumnDef = "estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.proEstado}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openEditMenuProducto(element)" mat-raised-button color="basic">Editar</button> |
+                <button (click)="deleteMenuProducto(element)" mat-raised-button color="warn">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas1"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas1"></tr>
+    </table>
+</div>
+
+<br>
+<h2>Acompañamiento</h2>
+<div>
+    <button mat-raised-button color="primary" (click)="openAddMenuAcompaniamiento()">Nuevo Acompañamiento</button>
+</div>
+<br>
+<div>
+    <table mat-table [dataSource]="lst2" class="mat-elevation-z4">
+        <ng-container matColumnDef = "id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element">{{element.acoId}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.acoNombre}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "precio">
+            <th mat-header-cell *matHeaderCellDef>Precio</th>
+            <td mat-cell *matCellDef="let element">$ {{element.acaPrecio}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef = "actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openEditMenuAcompaniamiento(element)" mat-raised-button color="basic">Editar</button> |
+                <button (click)="deleteMenuAcompaniamiento(element)" mat-raised-button color="warn">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas2"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas2"></tr>
+    </table>
+</div>
+
+<br>
+<h2>Modificación</h2>
+<div>
+    <button mat-raised-button color="primary" (click)="openAddMenuModificacion()">Nueva Modificacion</button>
+</div>
+<br>
+<div>
+    <table mat-table [dataSource]="lst3" class="mat-elevation-z4">
+        <ng-container matColumnDef = "id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element">{{element.modId}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.modNombre}}</td>
+        </ng-container>
+       
+       
+        <ng-container matColumnDef = "actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openEditMenuModificacion(element)" mat-raised-button color="basic">Editar</button> |
+                <button (click)="deleteMenuModificacion(element)" mat-raised-button color="warn">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas3"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas3"></tr>
+    </table>
+</div>
+
+
+<br>
+<h2>Descuentos</h2>
+<div>
+    <button mat-raised-button color="primary" (click)="openAddMenuDescuento()">Nuevo Descuento</button>
+</div>
+<br>
+<div>
+    <table mat-table [dataSource]="lst4" class="mat-elevation-z4">
+        <ng-container matColumnDef = "id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element">{{element.desId}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "producto">
+            <th mat-header-cell *matHeaderCellDef>Producto</th>
+            <td mat-cell *matCellDef="let element">{{element.desProducto}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "porcentaje">
+            <th mat-header-cell *matHeaderCellDef>Porcentaje</th>
+            <td mat-cell *matCellDef="let element">{{element.desPorcentaje}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "fechaI">
+            <th mat-header-cell *matHeaderCellDef>Fecha Inicio</th>
+            <td mat-cell *matCellDef="let element">{{element.desFechaInicio}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "fechaF">
+            <th mat-header-cell *matHeaderCellDef>Fecha Final</th>
+            <td mat-cell *matCellDef="let element">{{element.desFechaFinal}}</td>
+        </ng-container>
+        <ng-container matColumnDef = "estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.desEstado}}</td>
+        </ng-container>
+       
+       
+        <ng-container matColumnDef = "actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openEditMenuDescuento(element)" mat-raised-button color="basic">Editar</button> |
+                <button (click)="deleteMenuDescuento(element)" mat-raised-button color="warn">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas4"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas4"></tr>
+    </table>
+</div>

@@ -1,0 +1,60 @@
+<h1 mat-dialog-title >{{menuu!=null ? 'Editar Producto': 'Nueva Producto'}}</h1>
+<div mat-dialog-content>
+    <mat-label>Categoria</mat-label><br>
+    <select matselect [(ngModel)]="proCategoria"  >
+        <option value="0">Selecciona una opción</option>
+        <option value="{{element.catId}}" *ngFor="let element of lst">
+            {{element.catNombre}}
+        </option>  
+    </select> 
+<br><br>
+
+
+        <mat-label>Sede</mat-label><br>
+        <select matselect [(ngModel)]="proSede"  >
+            <option value="0">Selecciona una opción</option>
+            <option value="{{element.sedId}}" *ngFor="let element of lst1">
+                {{element.sedUbicacionGoogle}}
+            </option>  
+        </select> 
+    <br><br>
+     
+   
+    <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="proNombre"> 
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Descripcion</mat-label>
+            <input matInput [(ngModel)]="proDescripcion"> 
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Precio</mat-label>
+                <input matInput [(ngModel)]="proPrecio"> 
+                </mat-form-field>
+        
+                <mat-form-field>
+                    <mat-label>Foto</mat-label>
+                    <input matInput [(ngModel)]="proFoto"> 
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Video</mat-label>
+                        <input matInput [(ngModel)]="proVideo"> 
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Preparación</mat-label>
+                            <input matInput [(ngModel)]="proTiempoPreparacion"> 
+                            </mat-form-field>
+               
+            <mat-form-field>
+                <mat-label>Estado</mat-label>
+                <input matInput [(ngModel)]="proEstado"> 
+                </mat-form-field>
+    
+                                                       
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="menuu!= null ? edit() : add()">Guardar</button>
+</div>

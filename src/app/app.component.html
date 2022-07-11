@@ -1,0 +1,22 @@
+<body>
+    
+
+<header>
+<h2 class="nombre restaurante"> parrilla de chuy </h2>
+<nav>
+<a [routerLink]="['/home']">home</a>
+<a [routerLink]="['/login']">Iniciar Sesion</a>
+<a [routerLink]="['/menu']" *ngIf="usuario">Menu</a>
+<a [routerLink]="['/maestro']" *ngIf="usuario">Maestro</a>
+<a [routerLink]="['/pedido']" *ngIf="usuario">Pedido</a>
+<a [routerLink]="['/usuarios']" *ngIf="usuario">Usuarios</a>
+<a [routerLink]="['/inf-restaurante']" *ngIf="usuario">Informacion restaurante</a>
+<a (click)="logout()" *ngIf="usuario">Cerrar Sesion</a> 
+</nav>
+</header>
+<div>
+
+<router-outlet></router-outlet>
+</div>
+
+</body>
