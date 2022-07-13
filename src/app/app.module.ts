@@ -37,6 +37,7 @@ import { MatCardModule} from '@angular/material/card';
 import { MunicipioComponent } from './maestro/Municipio/Municipio.component';
 import { DepartamentoComponent } from './maestro/Departamento/Departamento.component';
 import {MatListModule} from '@angular/material/list';
+import{MatSidenavModule} from '@angular/material/sidenav';
 import { LoginComponent } from './login/login';
 import { JwtInterceptor } from './security/jwt';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -90,6 +91,7 @@ import { DialogUsuarioComponent } from './usuarios/dialog/dialogUsuario.componen
     MatSnackBarModule,
     MatListModule,
     MatCardModule,
+    MatSidenavModule,
     FormsModule,
     ReactiveFormsModule,
     MatPaginatorModule,

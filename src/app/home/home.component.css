@@ -1,4 +1,13 @@
 
 mat-list {
-    background-color:rgb(255, 255, 255);
+    background-color:darkgrey;
+    margin: 10px 0px ;
+     display:inline;
+     padding-left:3px;
+     padding-right:3px;
+  }
+  mat-list-item{
+    background-color: rgb(255, 255, 255);
+    margin: 10px 10px 10px ;
+
   }

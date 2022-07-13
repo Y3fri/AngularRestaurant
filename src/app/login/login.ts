@@ -3,7 +3,8 @@ import { Router } from "@angular/router";
 import { FormBuilder, Validators } from "@angular/forms";
 import { ApiAuth } from "../services/apiAuth";
 
-@Component({templateUrl: 'login.html'})
+@Component({templateUrl: 'login.html',
+styleUrls: ['login.css']})
 export class LoginComponent implements OnInit{
     
     public loginForm = this.formBuilder.group({

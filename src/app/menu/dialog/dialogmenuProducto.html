@@ -37,10 +37,10 @@
                     <mat-label>Foto</mat-label>
                     <input matInput [(ngModel)]="proFoto"> 
                     </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Video</mat-label>
-                        <input matInput [(ngModel)]="proVideo"> 
-                        </mat-form-field>
+                   <br>
+                        <mat-label>Video</mat-label><br>
+                        <input [(ngModel)]="proVideo" name="file[]" class="file_multi_video" accept="video/*"> 
+                      <br>        
                         <mat-form-field>
                             <mat-label>Preparación</mat-label>
                             <input matInput [(ngModel)]="proTiempoPreparacion"> 
