@@ -4,7 +4,7 @@ header{
     color: white;
     display: flex;
     height: 60px;
-    background: #333;
+    background: rgb(65, 62, 165);
     align-items: center;
     width: 100%; 
 	  top: 0; 
@@ -27,10 +27,10 @@ header{
        
       }
       #boton{
-        background: #333;
+        background:  rgb(65, 62, 165);
     
     color: white;
-    border:  1px solid #333;
+    border:  1px solid  rgb(65, 62, 165);
     text-align: left;
     height: 40px;
     display: flex;
@@ -77,10 +77,10 @@ header{
     position: absolute;
   }
   #salir1{
-    background: #333;
+    background: rgb(65, 62, 165);
     
     color: white;
-    border:  1px solid #333;
+    border:  1px solid rgb(65, 62, 165);
     text-align: left;
     height: 40px;
     display: flex;

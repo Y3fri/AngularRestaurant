@@ -12,9 +12,9 @@ import { AuthGuard } from './security/auth';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
-  {path : '', redirectTo: '/home', pathMatch:'full' },
-  {path : 'home',component:HomeComponent},
-  {path : 'menu',component:MenuComponent, canActivate: [AuthGuard]},
+  {path : '', redirectTo: '/menu', pathMatch:'full' },
+  {path : 'menu',component:HomeComponent},
+  {path : 'producto',component:MenuComponent, canActivate: [AuthGuard]},
   {path : 'inf-restaurante',component:InfRestauranteComponent, canActivate: [AuthGuard]},
   {path : 'maestro',component:MaestroComponent , canActivate: [AuthGuard]},
   {path : 'maestro/municipio/:id',component:MunicipioComponent , canActivate: [AuthGuard]},

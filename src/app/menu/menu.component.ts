@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DomSanitizer } from '@angular/platform-browser';
 import { DialogDeleteComponent } from '../Common/delete/dialogdelete.component';
 import { MenuAcompaniamiento } from '../Models/menuAcompaniamiento';
 import { MenuCategoria } from '../Models/menuCategoria';
@@ -36,12 +37,15 @@ export class MenuComponent implements OnInit {
   public lst4: any[] =[];
   public columnas4 : string[] = ['id','producto','porcentaje','fechaI','fechaF','estado','actions'];
  readonly width: string = '300'
+ public archivos: any[]=[];
+ public proFoto: string='';
   constructor(
     private apiMenuCategoria: ApiMenuCategoriaService,
     private apiMenuProducto: ApiMenuProductoService,
     private apiMenuAcompaniamiento: ApiMenuAcompaniamientoService,
     private apiMenuModificacion:ApiMenuModificacionService,
     private apiMenuDescuento:ApiMenuDescuentoService,
+    private sanitizer: DomSanitizer,
     public  dialog: MatDialog,
     public snackBar: MatSnackBar){}
 
@@ -52,6 +56,43 @@ export class MenuComponent implements OnInit {
     this.getMenuModificacion();
     this.getMenuDescuento();
   }
+  capturarFile(event: any) {
+    const archivoCapturado = event.target.file[0];
+    this.extraerBase64(archivoCapturado).then((imagen: any) => {
+      this.proFoto = imagen.base;
+      console.log(imagen);
+              
+    })
+    this.archivos.push(archivoCapturado)
+    // 
+    // console.log(event.target.files);
+
+  }
+
+
+  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
+    try {
+      const unsafeImg = window.URL.createObjectURL($event);
+      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+      const reader = new FileReader();
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          base: reader.result
+        });
+      };
+      reader.onerror = error => {
+        resolve({
+          base: null
+        });
+      };
+
+    } catch (e) {
+      return null;
+    }
+    return $event;
+  })
+
 //Menu Categoria
 getMenuCategoria(){
   this.apiMenuCategoria.getMenuCategoria().subscribe(response =>{

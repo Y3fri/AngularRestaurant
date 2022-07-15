@@ -20,7 +20,7 @@ import { DialogPaisComponent } from './maestro/dialog/dialogPais';
 import { DialogDepartamentoComponent } from './maestro/dialog/dialogDepartamento';
 import { DialogMunicipioComponent } from './maestro/dialog/dialogMunicipio';
 import { DialogSedeComponent } from './inf-restaurante/dialog/dialogSede';
-import { HomeComponent } from './home/home.component';
+
 import { DialogMenuCategoriaComponent } from './menu/dialog/dialogmenuCategoria';
 import { DialogMenuProductoComponent } from './menu/dialog/dialogmenuProducto';
 import { DialogMenuAcompaniamientoComponent } from './menu/dialog/dialogmenuAcompaniamiento';
@@ -44,6 +44,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { DialogRolComponent } from './usuarios/dialog/dialogRol.component';
 import { DialogModuloComponent } from './usuarios/dialog/dialogModulo.component';
 import { DialogUsuarioComponent } from './usuarios/dialog/dialogUsuario.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [

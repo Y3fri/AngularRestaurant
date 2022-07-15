@@ -33,11 +33,16 @@
                 <input matInput [(ngModel)]="proPrecio"> 
                 </mat-form-field>
         
-                <mat-form-field>
+             
                     <mat-label>Foto</mat-label>
-                    <input matInput [(ngModel)]="proFoto"> 
-                    </mat-form-field>
-                   <br>
+                    <input  [(ngModel)]="proFoto" type="file" (change)="capturarFile($event)"> 
+              <br>
+              <div class="preview-img" *ngIf="proFoto">
+               
+                <img width="100px" [src]="proFoto" alt="">
+            </div>
+             
+                   <br><br><br>
                         <mat-label>Video</mat-label><br>
                         <input [(ngModel)]="proVideo" name="file[]" class="file_multi_video" accept="video/*"> 
                       <br>        

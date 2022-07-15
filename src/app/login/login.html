@@ -1,20 +1,23 @@
-
-
 <body>
-
-    <div class="form-body">
-    <h1>Inicio de sesión</h1>
     
-        <form class="loging-form" [formGroup]="loginForm" (ngSubmit)="login()">
-            
-        <input type="text" formControlName="UsuNickname" matInput placeholder="Email">
-    
-        <input type="password" formControlName="UsuContrasenia" matInput placeholder="Contraseña">
+    <div id="titulo">
+        <h1>INICIO DE SESIÓN</h1>
+     
+    </div>
+      <form class="loging-form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="group">
+          <input type="text"  formControlName="UsuNickname" matInput placeholder="Usuario"  >
          
-<div>
-    <button type="submit" [disabled]="!loginForm.valid"  mat-raised-button>Iniciar sesión</button>
-</div>
-</form>
-</div>
+        
+        </div>
+        <div class="group">
+          <input type="password" formControlName="UsuContrasenia" matInput placeholder="Contraseña"  ><span class="highlight"></span><span class="bar"></span>
+       
+        </div>
+        <button type="submit" [disabled]="!loginForm.valid"  mat-raised-button>Iniciar Sesión
+          <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+        </button>
+      </form>
     
-</body>
+    </body>
+    

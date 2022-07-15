@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { MatDialogRef ,MAT_DIALOG_DATA} from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { DomSanitizer } from "@angular/platform-browser";
 import { MenuProducto } from "src/app/Models/menuProducto";
 import { ApiMenuCategoriaService } from "src/app/services/apiMenuCategoria";
 import { ApiMenuProductoService } from "src/app/services/apiMenuProducto";
@@ -23,11 +24,14 @@ export class DialogMenuProductoComponent implements OnInit{
     public proEstado:boolean=true;
     public lst:any[]=[];
     public lst1:any[]=[];
+    public archivos: any[]=[];
+    public previsualizacion: string='';
     
     constructor( 
         public dialogRef: MatDialogRef<DialogMenuProductoComponent>,
         public apiMenuProducto : ApiMenuProductoService,
         private apiMenuCategoria: ApiMenuCategoriaService,
+        private sanitizer: DomSanitizer,
         private apiSede: ApiSedeService,
         public snackBar:MatSnackBar,
         @Inject(MAT_DIALOG_DATA) public menuu: MenuProducto
@@ -51,6 +55,50 @@ export class DialogMenuProductoComponent implements OnInit{
             this.getMenuCategoria();
             this.getSede();
           }
+
+          capturarFile(event: any) {
+            const archivoCapturado = event.target.files[0]
+            this.extraerBase64(archivoCapturado).then((imagen: any) => {
+                this.proFoto = imagen.base;
+              console.log(imagen);
+                      
+            })
+            this.archivos.push(archivoCapturado)
+            // 
+            // console.log(event.target.files);
+        
+          }
+        
+        
+          extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
+            try {
+              const unsafeImg = window.URL.createObjectURL($event);
+              const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+              const reader = new FileReader();
+              reader.readAsDataURL($event);
+              reader.onload = () => {
+                resolve({
+                  base: reader.result
+                });
+              };
+              reader.onerror = error => {
+                resolve({
+                  base: null
+                });
+              };
+        
+            } catch (e) {
+              return null;
+            }
+            return $event;
+          })
+        
+        
+          /**
+           * Limpiar imagen
+           */
+      
+
         getMenuCategoria(){
             this.apiMenuCategoria.getMenuCategoria().subscribe(response =>{
               this.lst = response.data;

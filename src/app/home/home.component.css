@@ -1,13 +1,28 @@
-
 mat-list {
-    background-color:darkgrey;
-    margin: 10px 0px ;
-     display:inline;
-     padding-left:3px;
-     padding-right:3px;
-  }
-  mat-list-item{
-    background-color: rgb(255, 255, 255);
-    margin: 10px 10px 10px ;
+  flex-wrap: wrap;
+ display: flex;
+margin: 10px 10px ;
+ border-radius: 10px;
+ padding-left:auto;
+ padding: right auto;
+}
+mat-list-item{
+  background-color: aquamarine;
+ display: flex;
+ border-radius: 20px;
 
-  }
+ flex-flow: wrap;
+}
+   @media( max-width:300px) 
+   { mat-list{
+    flex-direction: column;
+    
+   }
+   
+   }
+   p,h1{
+    font-size:xx-large;
+    color:black;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font: weight 600px;;
+   }
