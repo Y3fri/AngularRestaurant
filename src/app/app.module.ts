@@ -45,6 +45,8 @@ import { DialogRolComponent } from './usuarios/dialog/dialogRol.component';
 import { DialogModuloComponent } from './usuarios/dialog/dialogModulo.component';
 import { DialogUsuarioComponent } from './usuarios/dialog/dialogUsuario.component';
 import { HomeComponent } from './home/home.component';
+import {  MatSelectModule } from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -93,6 +95,8 @@ import { HomeComponent } from './home/home.component';
     MatListModule,
     MatCardModule,
     MatSidenavModule,
+    MatSelectModule,
+    MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
     MatPaginatorModule,

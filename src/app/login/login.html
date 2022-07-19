@@ -1,10 +1,12 @@
 <body>
-    
-    <div id="titulo">
+   <form class="loging-form" [formGroup]="loginForm" (ngSubmit)="login()"> 
+    <div id="titulo" *ngFor="let element of lst">
+       <img [src]="element.infLogo" width="100" height="100" alt=""> <br><br>
+
         <h1>INICIO DE SESIÓN</h1>
-     
+    <br>
     </div>
-      <form class="loging-form" [formGroup]="loginForm" (ngSubmit)="login()">
+      
         <div class="group">
           <input type="text"  formControlName="UsuNickname" matInput placeholder="Usuario"  >
          

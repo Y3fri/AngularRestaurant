@@ -1,22 +1,24 @@
 <h1 mat-dialog-title >{{menu!=null ? 'Editar Producto': 'Nuevo Producto'}}</h1>
 <div mat-dialog-content>
-    <mat-label>Producto</mat-label><br>
-    <select matselect [(ngModel)]="proProducto"  >
-        <option value="0">Selecciona una opción</option>
-        <option value="{{element.proId}}" *ngFor="let element of lst">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Producto</mat-label>
+    <mat-select [(ngModel)]="proProducto"  >
+        <mat-option *ngFor="let element of lst" value="{{element.proId}}">
             {{element.proNombre}}
-        </option>  
-    </select> 
-<br><br>
+        </mat-option>  
+    </mat-select> 
+    </mat-form-field><br> 
   
-        <mat-label>Estado</mat-label><br>
-        <select matselect [(ngModel)]="proEstado"  >
-            <option value="0">Selecciona una opción</option>
-            <option value="{{element.estId}}" *ngFor="let element of lst1">
+ 
+        <mat-form-field appearance="fill">
+            <mat-label>Estado</mat-label>
+        <mat-select [(ngModel)]="proEstado"  >
+            <mat-option *ngFor="let element of lst1" value="{{element.estId}}">
                 {{element.estNombre}}
-            </option>  
-        </select> 
-    <br><br>
+            </mat-option>  
+        </mat-select> 
+        </mat-form-field><br> 
         
             <mat-form-field>
                 <mat-label>Solicitud</mat-label>

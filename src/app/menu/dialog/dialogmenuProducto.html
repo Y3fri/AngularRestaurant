@@ -1,62 +1,67 @@
-<h1 mat-dialog-title >{{menuu!=null ? 'Editar Producto': 'Nueva Producto'}}</h1>
+<h1 mat-dialog-title>{{menuu!=null ? 'Editar Producto': 'Nueva Producto'}}</h1>
 <div mat-dialog-content>
-    <mat-label>Categoria</mat-label><br>
-    <select matselect [(ngModel)]="proCategoria"  >
-        <option value="0">Selecciona una opción</option>
-        <option value="{{element.catId}}" *ngFor="let element of lst">
-            {{element.catNombre}}
-        </option>  
-    </select> 
-<br><br>
+    <span>
+        <mat-label>Foto</mat-label> 
+        <div class="preview-img" *ngIf="proFoto">
 
-
-        <mat-label>Sede</mat-label><br>
-        <select matselect [(ngModel)]="proSede"  >
-            <option value="0">Selecciona una opción</option>
-            <option value="{{element.sedId}}" *ngFor="let element of lst1">
-                {{element.sedUbicacionGoogle}}
-            </option>  
-        </select> 
-    <br><br>
-     
-   
-    <mat-form-field>
-        <mat-label>Nombre</mat-label>
-        <input matInput [(ngModel)]="proNombre"> 
+            <img width="200px" [src]="proFoto" alt=""><br><br>
+        <input [(ngModel)]="proFoto" type="file" (change)="capturarFile($event)">
+        <br><br>
+       
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Categorias</mat-label>
+            <mat-select [(ngModel)]="proCategoria">
+                <mat-option *ngFor="let element of lst" value="{{element.catId}}">
+                    {{element.catNombre}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Sede</mat-label>
+            <mat-select [(ngModel)]="proSede">
+                <mat-option *ngFor="let element of lst1" value="{{element.sedId}}">
+                    {{element.sedUbicacionGoogle}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+       
+
+
+
+    </span>
+    <span>
+ <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="proNombre">
+        </mat-form-field><br> <br>
         <mat-form-field>
             <mat-label>Descripcion</mat-label>
-            <input matInput [(ngModel)]="proDescripcion"> 
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Precio</mat-label>
-                <input matInput [(ngModel)]="proPrecio"> 
-                </mat-form-field>
-        
-             
-                    <mat-label>Foto</mat-label>
-                    <input  [(ngModel)]="proFoto" type="file" (change)="capturarFile($event)"> 
-              <br>
-              <div class="preview-img" *ngIf="proFoto">
-               
-                <img width="100px" [src]="proFoto" alt="">
-            </div>
-             
-                   <br><br><br>
-                        <mat-label>Video</mat-label><br>
-                        <input [(ngModel)]="proVideo" name="file[]" class="file_multi_video" accept="video/*"> 
-                      <br>        
-                        <mat-form-field>
-                            <mat-label>Preparación</mat-label>
-                            <input matInput [(ngModel)]="proTiempoPreparacion"> 
-                            </mat-form-field>
-               
-            <mat-form-field>
-                <mat-label>Estado</mat-label>
-                <input matInput [(ngModel)]="proEstado"> 
-                </mat-form-field>
-    
-                                                       
+            <input matInput [(ngModel)]="proDescripcion">
+        </mat-form-field><br> <br>
+        <mat-form-field>
+            <mat-label>Precio</mat-label>
+            <input matInput [(ngModel)]="proPrecio">
+        </mat-form-field><br> <br>
+        <mat-form-field>
+            <mat-label>Video</mat-label>
+            <input matInput [(ngModel)]="proVideo">
+        </mat-form-field>
+        <br><br>
+        <mat-form-field>
+            <mat-label>Preparación</mat-label>
+            <input matInput [(ngModel)]="proTiempoPreparacion">
+        </mat-form-field><br>
+<br>
+        <mat-form-field>
+            <mat-label>Estado</mat-label>
+            <input matInput [(ngModel)]="proEstado">
+        </mat-form-field>
+
+    </span>
 
 </div>
 <div mat-dialog-actions>

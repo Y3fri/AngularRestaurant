@@ -45,7 +45,7 @@ export class MenuComponent implements OnInit {
     private apiMenuAcompaniamiento: ApiMenuAcompaniamientoService,
     private apiMenuModificacion:ApiMenuModificacionService,
     private apiMenuDescuento:ApiMenuDescuentoService,
-    private sanitizer: DomSanitizer,
+ 
     public  dialog: MatDialog,
     public snackBar: MatSnackBar){}
 
@@ -56,42 +56,7 @@ export class MenuComponent implements OnInit {
     this.getMenuModificacion();
     this.getMenuDescuento();
   }
-  capturarFile(event: any) {
-    const archivoCapturado = event.target.file[0];
-    this.extraerBase64(archivoCapturado).then((imagen: any) => {
-      this.proFoto = imagen.base;
-      console.log(imagen);
-              
-    })
-    this.archivos.push(archivoCapturado)
-    // 
-    // console.log(event.target.files);
-
-  }
-
-
-  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
-    try {
-      const unsafeImg = window.URL.createObjectURL($event);
-      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
-      const reader = new FileReader();
-      reader.readAsDataURL($event);
-      reader.onload = () => {
-        resolve({
-          base: reader.result
-        });
-      };
-      reader.onerror = error => {
-        resolve({
-          base: null
-        });
-      };
-
-    } catch (e) {
-      return null;
-    }
-    return $event;
-  })
+  
 
 //Menu Categoria
 getMenuCategoria(){
@@ -320,7 +285,7 @@ dialogRef.afterClosed().subscribe(resul=>{
         this.snackBar.open('Cliente eliminado con exito','',{
           duration:2000
         });
-              this.getMenuModificacion();
+              this.getMenuDescuento();
       }
     });
   }

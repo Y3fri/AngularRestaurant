@@ -1,66 +1,64 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { MatDialogRef ,MAT_DIALOG_DATA} from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { DomSanitizer } from "@angular/platform-browser";
 import { InfRestaurante } from "src/app/Models/infRestaurante";
 import { ApiInfRestauranteService } from "src/app/services/apiInfRestaurante";
 import { ApiMaestroMunicipioService } from "src/app/services/apimaestroMunicipio";
 
 
 @Component({
-    templateUrl: 'dialogInfRestaurant.component.html'
+    templateUrl: 'dialogInfRestaurant.component.html',
+    styleUrls: ['dialogInfRestaurant.component.css']
 })
 export class DialogInfRestauranteComponent implements OnInit{
-    public InfMunicipio:number= 0;
-    public IntNit: string ='';
-    public InfRazonSocial: string='';
-    public InfEmailPrincipal:string='';
-    public InfDireccionPrincipal: string='';
-    public InfTelefonoPrincipal:string='';
-    public InfLogo:string='';
+    public infMunicipio:number= 0;
+    public intNit: string ='';
+    public infRazonSocial: string='';
+    public infEmailPrincipal:string='';
+    public infDireccionPrincipal: string='';
+    public infTelefonoPrincipal:string='';
+    public infLogo:string='';
     public lst: any[]=[];
+    public archivoss: any[]=[];
 
     constructor( 
         public dialogRef: MatDialogRef<DialogInfRestauranteComponent>,
         public apiInfRestaurante : ApiInfRestauranteService,
         public apiMunicipio:ApiMaestroMunicipioService,
         public snackBar:MatSnackBar,
+        private sanitizer: DomSanitizer,
         @Inject(MAT_DIALOG_DATA) public infRes: InfRestaurante
         ){
             if(this.infRes != null){
-                this.InfMunicipio = infRes.infMunicipio;
-                this.IntNit=infRes.intNit;
-                this.InfRazonSocial=infRes.infRazonSocial;
-                this.InfEmailPrincipal=infRes.infEmailPrincipal;
-                this.InfDireccionPrincipal=infRes.infDireccionPrincipal;
-                this.InfTelefonoPrincipal=infRes.infTelefonoPrincipal;
-                this.InfLogo=infRes.infLogo;
+                this.infMunicipio = infRes.infMunicipio;
+                this.intNit=infRes.intNit;
+                this.infRazonSocial=infRes.infRazonSocial;
+                this.infEmailPrincipal=infRes.infEmailPrincipal;
+                this.infDireccionPrincipal=infRes.infDireccionPrincipal;
+                this.infTelefonoPrincipal=infRes.infTelefonoPrincipal;
+                this.infLogo=infRes.infLogo;
             }
         }
         ngOnInit(): void {
             this.getMaestroMunicipio();
+        
           }
+         
+        
+
         getMaestroMunicipio(){
             this.apiMunicipio.getMaestroMunicipio().subscribe(response =>{
               this.lst = response.data;
             });
           }
+         
         cerrar(){
             this.dialogRef.close();
         }
 
-        add(){
-            const  InfRess: InfRestaurante  ={infId: 0, infMunicipio: this.InfMunicipio,intNit:this.IntNit,infRazonSocial:this.InfRazonSocial,infEmailPrincipal:this.InfEmailPrincipal,infDireccionPrincipal:this.InfDireccionPrincipal,infTelefonoPrincipal:this.InfTelefonoPrincipal,infLogo:this.InfLogo};
-            this.apiInfRestaurante.add(InfRess).subscribe(response =>{
-                if(response.exito == 1){
-                    this.dialogRef.close();
-                    this.snackBar.open('Cliente insertado con éxito','',{
-                        duration:2000
-                });
-            }
-        });
-    }
         edit(){
-            const InfResta: InfRestaurante ={infId: this.infRes.infId,infMunicipio: this.InfMunicipio,intNit:this.IntNit,infRazonSocial:this.InfRazonSocial,infEmailPrincipal:this.InfEmailPrincipal,infDireccionPrincipal:this.InfDireccionPrincipal,infTelefonoPrincipal:this.InfTelefonoPrincipal,infLogo:this.InfLogo};
+            const InfResta: InfRestaurante ={infId: this.infRes.infId,infMunicipio: this.infMunicipio,intNit:this.intNit,infRazonSocial:this.infRazonSocial,infEmailPrincipal:this.infEmailPrincipal,infDireccionPrincipal:this.infDireccionPrincipal,infTelefonoPrincipal:this.infTelefonoPrincipal,infLogo:this.infLogo};
             this.apiInfRestaurante.Edit(InfResta).subscribe(response =>{
                 if(response.exito == 1){
                     this.dialogRef.close();
@@ -70,5 +68,40 @@ export class DialogInfRestauranteComponent implements OnInit{
             }
         });
         }
- 
+        capturarFile(event: any) {
+          const archivoCapturados = event.target.files[0]
+          this.extraerBase64(archivoCapturados).then((imagen: any) => {
+              this.infLogo = imagen.base;
+            console.log(imagen);
+                    
+          })
+          this.archivoss.push(archivoCapturados)
+          // 
+          // console.log(event.target.files);
+      
+        }
+      
+      
+        extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
+          try {
+            const unsafeImg = window.URL.createObjectURL($event);
+            const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+            const reader = new FileReader();
+            reader.readAsDataURL($event);
+            reader.onload = () => {
+              resolve({
+                base: reader.result
+              });
+            };
+            reader.onerror = error => {
+              resolve({
+                base: null
+              });
+            };
+      
+          } catch (e) {
+            return null;
+          }
+          return $event;
+        })
         }

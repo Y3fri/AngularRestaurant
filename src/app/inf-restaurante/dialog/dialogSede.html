@@ -1,14 +1,15 @@
 <h1 mat-dialog-title >{{sede!=null ? 'Editar Sede': 'Nueva Sede'}}</h1>
 <div mat-dialog-content>
-    
-    <mat-label>Informacion</mat-label><br>
-    <select matselect [(ngModel)]="sedInfirmation"  >
-        <option value="0">Selecciona una opción</option>
-        <option value="{{element.infId}}" *ngFor="let element of lst">
-            {{element.intNit}}
-        </option>  
-    </select> 
-<br><br>
+ <span>
+   
+    <mat-form-field appearance="fill">
+        <mat-label>Restaurante</mat-label>
+    <mat-select [(ngModel)]="sedInfirmation"  >
+        <mat-option *ngFor="let element of lst" value="{{element.infId}}">
+            {{element.infRazonSocial}}
+        </mat-option>  
+    </mat-select> 
+    </mat-form-field><br> 
   
     <mat-form-field>
         <mat-label>Email</mat-label>
@@ -20,6 +21,8 @@
             <input matInput [(ngModel)]="sedInfDireccion"> 
             </mat-form-field>
             <br>
+        </span>   
+        <span>
             <mat-form-field>
                 <mat-label>Telefono</mat-label>
                 <input matInput [(ngModel)]="sedInfTelefono"> 
@@ -28,7 +31,7 @@
                     <mat-label>Ubicacion Google</mat-label>
                     <input matInput [(ngModel)]="sedUbicacionGoogle"> 
                     </mat-form-field>
-                                                        
+                </span>                                 
 
 </div>
 <div mat-dialog-actions>

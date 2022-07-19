@@ -78,9 +78,9 @@
         <ng-container matColumnDef = "foto">
             <th mat-header-cell *matHeaderCellDef>Foto</th>
             <td mat-cell *matCellDef="let element">
-                <div class="modal-container ">
-                <img  [src]="element.proFoto"  width="70px"/>
-            </div>
+               
+                <img [src]="element.proFoto" width="70px"/>
+           
         </td>
             
         </ng-container>
@@ -197,7 +197,7 @@
         </ng-container>
         <ng-container matColumnDef = "porcentaje">
             <th mat-header-cell *matHeaderCellDef>Porcentaje</th>
-            <td mat-cell *matCellDef="let element">{{element.desPorcentaje}}</td>
+            <td mat-cell *matCellDef="let element">{{element.desPorcentaje}} %</td>
         </ng-container>
         <ng-container matColumnDef = "fechaI">
             <th mat-header-cell *matHeaderCellDef>Fecha Inicio</th>
@@ -225,18 +225,3 @@
         <tr mat-row *matRowDef="let row; columns: columnas4"></tr>
     </table>
 </div>
-
-<script>
-    document.querySelectorAll(".modal-container img").forEach(el=>{
-        el.addEventListener("click",function(ev){
-            this.classList.add("active");
-        })
-    })
-   
-    document.querySelectorAll(".modal-container ").forEach(el=>{
-        el.addEventListener("click",function(ev){
-            this.classList.remove("active");
-        })
-    })
-   
-</script>

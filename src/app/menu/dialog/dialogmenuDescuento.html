@@ -1,28 +1,30 @@
 <h1 mat-dialog-title >{{menu!=null ? 'Editar Descuento': 'Nuevo Descuento'}}</h1>
 <div mat-dialog-content>
     
-    <mat-label>Producto</mat-label><br>
-    <select matselect [(ngModel)]="desProducto"  >
-        <option value="0">Selecciona una opción</option>
-        <option value="{{element.proId}}" *ngFor="let element of lst">
+ 
+<mat-form-field appearance="fill">
+    <mat-label>Producto</mat-label>
+    <mat-select [(ngModel)]="desProducto">
+        <mat-option *ngFor="let element of lst" value="{{element.proId}}">
             {{element.proNombre}}
-        </option>  
-    </select> 
-<br><br>
-   
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<br>
    
     <mat-form-field>
         <mat-label>Porcentaje</mat-label>
         <input matInput [(ngModel)]="desPorcentaje"> 
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Fecha Inicio</mat-label>
-            <input matInput [(ngModel)]="desFechaInicio"> 
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Fecha Final</mat-label>
-                <input matInput [(ngModel)]="desFechaFinal"> 
-                </mat-form-field>
+        </mat-form-field><br>
+
+            <mat-label>Fecha Inicio</mat-label> <br>
+            <input type="datetime-local" [(ngModel)]="desFechaInicio" ><br>
+
+     <br>
+                <mat-label>Fecha Final</mat-label><br>
+                <input type="datetime-local" [(ngModel)]="desFechaFinal"><br>
+<br>
+              
                 <mat-form-field>
                     <mat-label>Estado</mat-label>
                     <input matInput [(ngModel)]="desEstado"> 

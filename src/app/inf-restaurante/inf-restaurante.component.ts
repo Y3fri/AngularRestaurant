@@ -37,15 +37,7 @@ export class InfRestauranteComponent implements OnInit {
     });
   }
 
-  openAddInf(){
-    const dialogRef = this.dialog.open(DialogInfRestauranteComponent,{
 
-    });
-  
-  dialogRef.afterClosed().subscribe(resul=>{
-    this.getInfRestaurante();
-  });
- }
 
  openEditInf(InfRes: InfRestaurante){
   const dialogRef = this.dialog.open(DialogInfRestauranteComponent,{
@@ -57,23 +49,7 @@ export class InfRestauranteComponent implements OnInit {
   })
 }
 
-deleteInf(InfRes: InfRestaurante){
-  const dialogRef = this.dialog.open(DialogDeleteComponent,{
-    width: this.width
-  });
-  dialogRef.afterClosed().subscribe(resul=>{
-    if(resul){
-      this.apiInfRestaurante.Delete(InfRes.infId).subscribe(response=>{
-        if(response.exito ==1){
-          this.snackBar.open('Cliente eliminado con exito','',{
-            duration:2000
-          });
-                this.getInfRestaurante();
-        }
-      });
-    }
-  });
-}
+
 
 getSede(){
   this.apiSede.getSede().subscribe(response =>{

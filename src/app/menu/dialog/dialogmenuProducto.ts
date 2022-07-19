@@ -9,7 +9,8 @@ import { ApiSedeService } from "src/app/services/apiSede";
 
 
 @Component({
-    templateUrl: 'dialogmenuProducto.html'
+    templateUrl: 'dialogmenuProducto.html',
+    styleUrls: ['dialogmenuProducto.css']
 })
 export class DialogMenuProductoComponent implements OnInit{
 
@@ -25,7 +26,7 @@ export class DialogMenuProductoComponent implements OnInit{
     public lst:any[]=[];
     public lst1:any[]=[];
     public archivos: any[]=[];
-    public previsualizacion: string='';
+  
     
     constructor( 
         public dialogRef: MatDialogRef<DialogMenuProductoComponent>,
@@ -93,11 +94,7 @@ export class DialogMenuProductoComponent implements OnInit{
             return $event;
           })
         
-        
-          /**
-           * Limpiar imagen
-           */
-      
+ 
 
         getMenuCategoria(){
             this.apiMenuCategoria.getMenuCategoria().subscribe(response =>{

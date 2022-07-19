@@ -7,7 +7,8 @@ import { ApiSedeService } from "src/app/services/apiSede";
 
 
 @Component({
-    templateUrl: 'dialogSede.html'
+    templateUrl: 'dialogSede.html',
+    styleUrls: ['dialogSede.css']
 })
 export class DialogSedeComponent{
 

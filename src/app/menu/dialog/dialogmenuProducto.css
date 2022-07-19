@@ -1,0 +1,10 @@
+span{
+    padding: 10px;
+  }
+.mat-dialog-content{
+    display: flex;
+    
+}
+img{
+    border: 3px solid black;
+}

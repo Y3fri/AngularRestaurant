@@ -12,7 +12,8 @@ import { ApiPedidoTipoPagoService } from "src/app/services/apipedidoTipoPago";
 
 
 @Component({
-    templateUrl: 'dialogpedidoInformacion.html'
+    templateUrl: 'dialogpedidoInformacion.html',
+    styleUrls: ['dialogpedidoInformacion.css']
 })
 export class DialogPedidoInformacionComponent{
 

@@ -149,7 +149,7 @@ export class UsuariosComponent implements OnInit {
     data:usu
   });
   dialogRef.afterClosed().subscribe(resul=>{
-    this.getMod();
+    this.getUsu();
   })
   }
   
@@ -164,7 +164,7 @@ export class UsuariosComponent implements OnInit {
           this.snackBar.open('Cliente eliminado con exito','',{
             duration:2000
           });
-                this.getMod();
+                this.getUsu();
         }
       });
     }

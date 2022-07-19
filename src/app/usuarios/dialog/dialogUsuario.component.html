@@ -1,40 +1,47 @@
 <h1 mat-dialog-title >{{usu!=null ? 'Editar Modulo': 'Nuevo Modulo'}}</h1>
 <div mat-dialog-content>
 
-    <select matselect [(ngModel)]="usuRestaurante">
-        <option value="0">Selecciona una opción</option>
-        <option value="{{element.infId}}" *ngFor="let element of lst">
-            {{element.intNit}}
-        </option>  
-    </select> 
-    <select matselect [(ngModel)]="usuRol">
-        <option value="0">Selecciona una opción</option>
-        <option value="{{element.rolId}}" *ngFor="let element of lst2">
+ <span>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Restaurante</mat-label>
+    <mat-select [(ngModel)]="usuRestaurante"  >
+        <mat-option *ngFor="let element of lst" value="{{element.infId}}">
+            {{element.infRazonSocial}}
+        </mat-option>  
+    </mat-select> 
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+        <mat-label>Rol</mat-label>
+    <mat-select [(ngModel)]="usuRol"  >
+        <mat-option *ngFor="let element of lst2" value="{{element.rolId}}">
             {{element.rolNombre}}
-        </option>  
-    </select> 
+        </mat-option>  
+    </mat-select> 
+    </mat-form-field><br> 
     <mat-form-field>
         <mat-label>Documento</mat-label>
         <input matInput [(ngModel)]="usuDocumento"> 
-        </mat-form-field>
+        </mat-form-field><br>
         <mat-form-field>
             <mat-label>Nombre</mat-label>
             <input matInput [(ngModel)]="usuNombre"> 
-            </mat-form-field>
-          
+            </mat-form-field><br>
+        </span>
+        <span>
         <mat-form-field>
             <mat-label>Apellido</mat-label>
             <input matInput [(ngModel)]="usuApellido"> 
-            </mat-form-field>
+            </mat-form-field><br>
             <mat-form-field>
                 <mat-label>Nickname</mat-label>
                 <input matInput [(ngModel)]="usuNickname"> 
-                </mat-form-field>
+                </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Contraseña</mat-label>
                     <input matInput [(ngModel)]="usuContrasenia"> 
                     </mat-form-field>
-                                                       
+                </span>                                           
 
 </div>
 <div mat-dialog-actions>

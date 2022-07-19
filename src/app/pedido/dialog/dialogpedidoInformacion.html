@@ -1,59 +1,64 @@
 <h1 mat-dialog-title >{{menu!=null ? 'Editar Información': 'Nueva Información'}}</h1>
 <div mat-dialog-content>
 
-    <mat-label>Tipo</mat-label><br>
-    <select matselect [(ngModel)]="infTipo"  >
-        <option value="0">Selecciona una opción</option>
-        <option value="{{element.tipId}}" *ngFor="let element of lst">
+ <span>
+    <mat-form-field appearance="fill">
+        <mat-label>Tipo</mat-label>
+    <mat-select [(ngModel)]="infTipo"  >
+        <mat-option *ngFor="let element of lst" value="{{element.tipId}}">
             {{element.tipNombre}}
-        </option>  
-    </select> 
-<br><br>
-        <mat-label>Municipio</mat-label><br>
-        <select matselect [(ngModel)]="infMunicipio"  >
-            <option value="0">Selecciona una opción</option>
-            <option value="{{element.munId}}" *ngFor="let element of lst1">
+        </mat-option>  
+    </mat-select> 
+    </mat-form-field><br> 
+        <mat-form-field appearance="fill">
+            <mat-label>Municipio</mat-label>
+        <mat-select [(ngModel)]="infMunicipio"  >
+            <mat-option *ngFor="let element of lst1" value="{{element.munId}}">
                 {{element.munNombre}}
-            </option>  
-        </select> 
-    <br><br>
-    <mat-label>Tipo de pago</mat-label><br>
-    <select matselect [(ngModel)]="infTipoPago"  >
-        <option value="0">Selecciona una opción</option>
-        <option value="{{element.tipaId}}" *ngFor="let element of lst2">
-            {{element.tipaNombre}}
-        </option>  
-    </select> 
-<br><br>
-<mat-label>Estado</mat-label><br>
-        <select matselect [(ngModel)]="infEstado" >
-            <option value="0">Selecciona una opción</option>
-            <option value="{{element.estId}}" *ngFor="let element of lst3">
-                {{element.estNombre}}
-            </option>  
-        </select> 
-    <br><br>
-               
+            </mat-option>  
+        </mat-select> 
+        </mat-form-field><br> 
+
+<mat-form-field appearance="fill">
+    <mat-label>Tipo de pago</mat-label>
+<mat-select [(ngModel)]="infTipoPago"  >
+    <mat-option *ngFor="let element of lst2" value="{{element.tipaId}}">
+        {{element.tipaNombre}}
+    </mat-option>  
+</mat-select> 
+</mat-form-field><br> 
+
+    <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+    <mat-select [(ngModel)]="infEstado"  >
+        <mat-option *ngFor="let element of lst3" value="{{element.estId}}">
+            {{element.estNombre}}
+        </mat-option>  
+    </mat-select> 
+    </mat-form-field><br>  
+</span>
+    <span>
                     <mat-form-field>
                         <mat-label>Nombre Cliente</mat-label>
                         <input matInput [(ngModel)]="infNombreCliente"> 
-                        </mat-form-field>
+                        </mat-form-field><br>
                         <mat-form-field>
                             <mat-label>Direccion</mat-label>
                             <input matInput [(ngModel)]="infDireccion"> 
-                            </mat-form-field>
+                            </mat-form-field><br>
                             <mat-form-field>
                                 <mat-label>Telefono</mat-label>
                                 <input matInput [(ngModel)]="infTelefono"> 
-                                </mat-form-field>
+                                </mat-form-field><br>
                                 <mat-form-field>
                                     <mat-label>Numero de piso</mat-label>
                                     <input matInput [(ngModel)]="infNumeroPiso"> 
-                                    </mat-form-field>
+                                    </mat-form-field><br>
                                     <mat-form-field>
                                         <mat-label>Numero de mesa</mat-label>
                                         <input matInput [(ngModel)]="infNumeroMesa"> 
                                         </mat-form-field>
+                                    </span>   
 </div>
 <div mat-dialog-actions>
     <button mat-raised-button (click)="cerrar()">Cancelar</button>

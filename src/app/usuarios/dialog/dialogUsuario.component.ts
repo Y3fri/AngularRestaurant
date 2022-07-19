@@ -9,7 +9,8 @@ import { ApissoUsuarioService } from "src/app/services/apissoUsuarios";
 
 
 @Component({
-    templateUrl: 'dialogUsuario.component.html'
+    templateUrl: 'dialogUsuario.component.html',
+    styleUrls: ['dialogUsuario.component.css']
 })
 export class DialogUsuarioComponent implements OnInit{
 

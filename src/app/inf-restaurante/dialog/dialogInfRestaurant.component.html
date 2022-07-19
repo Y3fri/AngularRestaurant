@@ -1,40 +1,53 @@
-<h1 mat-dialog-title >{{infRes!=null ? 'Editar Informacion': 'Nueva Informacion'}}</h1>
+<h1 mat-dialog-title > Editar Informacion</h1>
 <div mat-dialog-content>
+   <span>
+        <mat-label>Foto</mat-label>
+       <div class="preview-img" *ngIf="infLogo">    
+        <img width="200px" [src]="infLogo" alt="">
+         
+                    <div class="custom-input-file col-md-6 col-sm-6 col-xs-6">
+                    <input  [(ngModel)]="infLogo" type="file" (change)="capturarFile($event)" accept="imagen/*">
+                </div>
+           
+            
+        </div><br>
+        <mat-form-field>
 
-    <select matselect [(ngModel)]="InfMunicipio"  >
-        <option value="0">Selecciona una opción</option>
-        <option value="{{element.munId}}" *ngFor="let element of lst">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput [(ngModel)]="infTelefonoPrincipal"> 
+                    </mat-form-field><br>  
+             
+                </span>
+                <span>
+    <mat-form-field appearance="fill">
+        <mat-label>Municipio</mat-label>
+    <mat-select [(ngModel)]="infMunicipio"  >
+        <mat-option *ngFor="let element of lst" value="{{element.munId}}">
             {{element.munNombre}}
-        </option>  
-    </select> 
- <br><br>
+        </mat-option>  
+    </mat-select> 
+    </mat-form-field><br>
     <mat-form-field>
         <mat-label>Nit</mat-label>
-        <input matInput [(ngModel)]="IntNit"> 
+        <input matInput [(ngModel)]="intNit"> 
         </mat-form-field><br>
         <mat-form-field>
             <mat-label>Razon Social</mat-label>
-            <input matInput [(ngModel)]="InfRazonSocial"> 
+            <input matInput [(ngModel)]="infRazonSocial"> 
             </mat-form-field><br>
             <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input matInput [(ngModel)]="InfEmailPrincipal"> 
+                <input matInput [(ngModel)]="infEmailPrincipal"> 
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Direccion</mat-label>
-                    <input matInput [(ngModel)]="InfDireccionPrincipal"> 
+                    <input matInput [(ngModel)]="infDireccionPrincipal"> 
                     </mat-form-field><br>
-                    <mat-form-field>
-                        <mat-label>Telefono</mat-label>
-                        <input matInput [(ngModel)]="InfTelefonoPrincipal"> 
-                        </mat-form-field><br>
-        <mat-form-field>
-             <mat-label>Logo</mat-label>
-             <input matInput [(ngModel)]="InfLogo"> 
-         </mat-form-field>   <br>                                              
+           
+                </span>
+        </div>                                          
 
-</div>
 <div mat-dialog-actions>
     <button mat-raised-button (click)="cerrar()">Cancelar</button>
-    <button mat-raised-button color="primary" (click)="infRes!= null ? edit() : add()">Guardar</button>
+    <button mat-raised-button color="primary" (click)="edit()">Guardar</button>
 </div>
