@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CarritoComponent } from './carrito/carrito.component';
 import { HomeComponent } from './home/home.component';
 import { InfRestauranteComponent } from './inf-restaurante/inf-restaurante.component';
 import { LoginComponent } from './login/login';
@@ -14,6 +15,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 const routes: Routes = [
   {path : '', redirectTo: '/menu', pathMatch:'full' },
   {path : 'menu',component:HomeComponent},
+  {path : 'carrito',component:CarritoComponent},
   {path : 'producto',component:MenuComponent, canActivate: [AuthGuard]},
   {path : 'inf-restaurante',component:InfRestauranteComponent, canActivate: [AuthGuard]},
   {path : 'maestro',component:MaestroComponent , canActivate: [AuthGuard]},

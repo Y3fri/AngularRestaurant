@@ -47,6 +47,8 @@ import { DialogUsuarioComponent } from './usuarios/dialog/dialogUsuario.componen
 import { HomeComponent } from './home/home.component';
 import {  MatSelectModule } from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { CarritoComponent } from './carrito/carrito.component';
+import { DialogColorComponent } from './inf-restaurante/dialog/dialogColor';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
    DialogRolComponent,
    DialogModuloComponent,
    DialogUsuarioComponent,
+   CarritoComponent,
+   DialogColorComponent,
   
     
   ],

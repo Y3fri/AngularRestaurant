@@ -2,7 +2,6 @@
 
 body {
 	font-family: Helvetica;
-	background:  #f2f2f2;
   -webkit-font-smoothing: antialiased;
 }
 #titulo { 
@@ -23,7 +22,7 @@ form {
 	padding: 0em 2em 2em 2em;
 	background: #fafafa;
 	border: 1px solid #ebebeb;
-	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+  border-radius: 10%;
 }
 
 .group { 
@@ -71,7 +70,7 @@ input:focus { outline: none; }
 	width: 0;
 	bottom: 1px; 
 	position: absolute;
-	background:  rgb(65, 62, 165); 
+	background:  rgb(0, 0, 0); 
 	transition: all 0.2s ease;
 }
 
@@ -108,7 +107,7 @@ input:focus ~ .highlight {
 /* Animations */
 
 @keyframes inputHighlighter {
-	from { background: rgb(65, 62, 165); }
+	from { background: rgb(1, 1, 1); }
 	to 	{ width: 0; background: transparent; }
 }
 
@@ -130,7 +129,6 @@ button {
   letter-spacing: 1px;
   background: transparent;
   border: 0;
-  border-bottom: 2px solid rgb(65, 62, 165);
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -140,11 +138,9 @@ button:focus { outline: 0; }
 /* Button modifiers */
 
 button {
-  background:  rgb(65, 62, 165);
-  text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-button:hover { background: #357bd8; }
 
 
 /* Ripples container */
@@ -171,7 +167,6 @@ button:hover { background: #357bd8; }
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
 }
 
 .ripples.is-active .ripplesCircle {

@@ -1,4 +1,4 @@
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { MatDialogRef ,MAT_DIALOG_DATA} from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Sede } from "src/app/Models/sede";
@@ -10,7 +10,7 @@ import { ApiSedeService } from "src/app/services/apiSede";
     templateUrl: 'dialogSede.html',
     styleUrls: ['dialogSede.css']
 })
-export class DialogSedeComponent{
+export class DialogSedeComponent implements OnInit{
 
     public sedInfirmation:number= 0;
     public sedEmail: string ='';

@@ -9,5 +9,4 @@ export interface MenuProducto{
     proVideo:string;
     proTiempoPreparacion:number;
     proEstado:boolean;
-
 }

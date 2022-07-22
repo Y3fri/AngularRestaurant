@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>{{color!=null ? 'Editar Colores': 'Nuevos Colores'}}</h1>
+<div mat-dialog-content>
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>Restaurante</mat-label>
+        <mat-select [(ngModel)]="colRestarurante">
+            <mat-option *ngFor="let element of lst" value="{{element.infId}}">
+                {{element.infRazonSocial}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <mat-label>Fondo</mat-label>
+        <input type="color" matInput [(ngModel)]="colFondo">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Encabezado</mat-label>
+        <input type="color" matInput [(ngModel)]="colEncabezado">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+        <mat-label>Fuente</mat-label>
+        <input type="color" matInput [(ngModel)]="colFuente">
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Titulos</mat-label>
+        <input type="color" matInput [(ngModel)]="colTitulos">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Titulo Encabezado</mat-label>
+        <input type="color" matInput [(ngModel)]="colTitEncabezado">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Titulo Menu</mat-label>
+        <input type="color" matInput [(ngModel)]="colTituMenu">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Contenedores</mat-label>
+        <input type="color" matInput [(ngModel)]="colConteMenu"> 
+    </mat-form-field>
+
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="color!= null ? edit() : add()">Guardar</button>
+</div>

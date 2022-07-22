@@ -8,6 +8,9 @@ import { DialogDeleteComponent } from '../Common/delete/dialogdelete.component';
 import { ApiSedeService } from '../services/apiSede';
 import { Sede } from '../Models/sede';
 import { DialogSedeComponent } from './dialog/dialogSede';
+import { ApiColorService } from '../services/apiColor';
+import { Color } from '../Models/color';
+import { DialogColorComponent } from './dialog/dialogColor';
 
 @Component({
   selector: 'app-inf-restaurante',
@@ -20,9 +23,12 @@ export class InfRestauranteComponent implements OnInit {
   readonly width: string = '300'
   public lst1: any[] =[];
   public columnas1 : string[] = ['id','inf','email','direccion','telefono','ubicacion','actions'];
+  public lst2: any[] =[];
+  public columnas2 : string[] = ['id','restaurante','fondo','encabezado','fuente','titulos','titulosEn','titulosMe','conte','actions'];
   constructor(
     private apiInfRestaurante: ApiInfRestauranteService,
     private apiSede: ApiSedeService,
+    private apiColor: ApiColorService,
     public  dialog: MatDialog,
     public snackBar: MatSnackBar
   ) { }
@@ -30,13 +36,13 @@ export class InfRestauranteComponent implements OnInit {
   ngOnInit(): void {
    this.getInfRestaurante();
    this.getSede();
+   this.getColor();
   }
   getInfRestaurante(){
     this.apiInfRestaurante.getInfRestaurante().subscribe(response =>{
       this.lst = response.data;
     });
   }
-
 
 
  openEditInf(InfRes: InfRestaurante){
@@ -94,4 +100,47 @@ dialogRef.afterClosed().subscribe(resul=>{
 });
 }
 
+
+getColor(){
+  this.apiColor.getColor().subscribe(response =>{
+    this.lst2 = response.data;
+  });
+}
+openAddColor(){
+  const dialogRef = this.dialog.open(DialogColorComponent,{
+
+  });
+
+dialogRef.afterClosed().subscribe(resul=>{
+  this.getColor();
+});
+}
+
+openEditColor(color : Color){
+const dialogRef = this.dialog.open(DialogColorComponent,{
+  width: this.width,
+  data:color
+});
+dialogRef.afterClosed().subscribe(resul=>{
+  this.getColor();
+})
+}
+
+deleteColor(color : Color){
+const dialogRef = this.dialog.open(DialogDeleteComponent,{
+  width: this.width
+});
+dialogRef.afterClosed().subscribe(resul=>{
+  if(resul){
+    this.apiColor.Delete(color.colId).subscribe(response=>{
+      if(response.exito ==1){
+        this.snackBar.open('Cliente eliminado con exito','',{
+          duration:2000
+        });
+              this.getColor();
+      }
+    });
+  }
+});
+}
 }

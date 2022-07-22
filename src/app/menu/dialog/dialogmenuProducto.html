@@ -1,14 +1,18 @@
 <h1 mat-dialog-title>{{menuu!=null ? 'Editar Producto': 'Nueva Producto'}}</h1>
 <div mat-dialog-content>
     <span>
-        <mat-label>Foto</mat-label> 
-        <div class="preview-img" *ngIf="proFoto">
-
-            <img width="200px" [src]="proFoto" alt=""><br><br>
+        <mat-label>Foto</mat-label> <br>
         <input [(ngModel)]="proFoto" type="file" (change)="capturarFile($event)">
         <br><br>
+        
+        <div class="preview-img" *ngIf="proFoto">
+
+        <img width="200px" [src]="proFoto" alt=""><br><br>
+        
+    
        
         </div>
+        <br>
         <mat-form-field appearance="fill">
             <mat-label>Categorias</mat-label>
             <mat-select [(ngModel)]="proCategoria">
